@@ -2,7 +2,7 @@
 
 ## ORIE4741Project Fall 2019
 
-Sourabh Chakraborty, Kush Dubey, and Nicolas Morales
+Group members: Sourabh Chakraborty, Kush Dubey, and Nicolas Morales
 
 Can we predict which kinds of construction permits — residential and commercial — will be approved based on various features about the application’s region?
 
