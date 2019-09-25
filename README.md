@@ -1,4 +1,6 @@
-# ORIE4741Project Fall 2019
+# NYC Building Permits
+
+## ORIE4741Project Fall 2019
 
 Sourabh Chakraborty, Kush Dubey, and Nicolas Morales
 
