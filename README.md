@@ -6,7 +6,7 @@ Sourabh Chakraborty, Kush Dubey, and Nicolas Morales
 
 Can we predict which kinds of construction permits — residential and commercial — will be approved based on various features about the application’s region?
 
-We’ll use the live [NYC Open Data DOB Permit Issuance](https://data.cityofnewyork.us/Housing-Development/DOB-Permit-Issuance/ipu4-2q9a) dataset to gather data about live permit applications, and other NYC Open Data datasets to collect relevant transit, social, and economic features.
+We’ll use the live [NYC Open Data DOB Permit Issuance](https://data.cityofnewyork.us/Housing-Development/DOB-Permit-Issuance/ipu4-2q9a) dataset to gather data about live permit applications, and other NYC Open Data datasets to collect relevant transit, social, and economic features. Those datasets are linked below. 
 
 Identifying zones and neighborhoods that are more likely to have building permits approved can indicate economic and social drivers at play. We intend to identify factors that impact building permit approval, potentially providing recommendations to home and business owners.
 
