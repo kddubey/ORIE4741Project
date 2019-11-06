@@ -20,3 +20,38 @@ When we look at the columns of "Filed date", "Issued date, and "Completed date" 
 
 If we look closer, we see that 62.8% of all permits are issued on the same day that they were filed.
 
+![](Figures/histogram_permit_type.png)
+
+The definitions for the permit types are as follows: 8 = otc alterations permit, 3 = additions alterations or repairs, 4 = sign - erect, 2 = new construction wood frame, 6 = demolitions, 7 = wall or painted sign, 1 = new construction, 5 = grade or quarry or fill or excavate.
+
+![](Figures/histogram_existing_construction_type.png)
+
+![](Figures/histogram_proposed_construction_type.png)
+
+![](Figures/histogram_plansets_categorical.png)
+
+![](Figures/histogram_street_name.png)
+
+![](Figures/histogram_supervisor_district.png)
+
+![](Figures/histogram_zipcode.png)
+
+![](Figures/histogram_neighborhood.png)
+
+![](Figures/histogram_latitude.png)
+
+![](Figures/histogram_longitude.png)
+
+### Preliminary Predictions
+
+Running a linear regression in which we predict the number of days for a permit to move from being in the filed stage to the issued stage, using only the permit type as a feature, we obtain the following predictions in comparison to the test data. Our mean square error (MSE) here is 5742.
+
+![](Figures/prediction_days_to_issue_regression_permit_type.png)
+
+Adding the number of plan sets as a feature improves the prediction, as is seen below. The MSE in this case is 5627.
+
+![](Figures/prediction_days_to_issue_regression_permit_type_plansets.png)
+
+Add the following features: proposed construction type, zipcode, supervisor district, existing construction type, and neighborhood improves the prediction as seen below. The MSE in this case is 5595.
+
+![](Figures/prediction_days_to_issue_regression_permit_type_plansets_proposed_construction_type_zipcode_supervisor_district_existing_construction_type_neighborhood.png)
