@@ -12,6 +12,7 @@ For this project data for building permit applications in New York City and San 
 
 There are two physical limitations to the dataset that could lead to overfitting. The first is that we can only see the issue time for permits that have been issued. This suggests that a regression model alone would be predicting permit issue times for a meaningful portion of future permits that won’t actually be issued, while only being trained on issued-permit data. To prevent this, we’ll build two models that occur in sequence. The first classifies whether or not a permit will be issued by training on both issued and unissued permit data. The second predicts the number of days for a permit to be issued by training on permits that we know were eventually issued. So for a new permit, first classify whether or not it will be issued. If so, predict the number of days that will take. The second limitation is that we can't see long issue times for recently filed permits like we can for old permits. For example, today, we can't possibly see the permit issue time for one filed in 2018 that takes 2 years or more to be issued. So including the date as a feature would cause overfitting. We'd be underpredicting future permits simply because we can't possibly see long issue times for recently filed permits in this dataset. This is avoided by excluding date as a feature. Figure 1 below demonstrates these issues in the data.
 
+| | |
 |:-------------------------:|:-------------------------:|
 |<img width="1604" src="Figures/scatter_days_to_issue_date_filed.png">  Figure 1: Days to issue vs. date filed |  <img width="1604" src="Figures/histogram_permit_status.png"> Figure 2: Permit status |
 
@@ -23,6 +24,7 @@ When we look at the columns of "Filed date", "Issued date, and "Completed date" 
 
 As is evident in the histograms below, many of the categorical and boolean features have one value in a clear majority, which could limit the effectiveness they may have. The definitions for the permit types are as follows: 8 = otc alterations permit, 3 = additions alterations or repairs, 4 = sign - erect, 2 = new construction wood frame, 6 = demolitions, 7 = wall or painted sign, 1 = new construction, 5 = grade or quarry or fill or excavate.
 
+| | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
 | <img width="1604" src="Figures/histogram_permit_type.png"> Figure 3: Permit types | <img width="1604" src="Figures/histogram_existing_construction_type.png"> Figure 4: Existing construction type | <img width="1604" src="Figures/histogram_proposed_construction_type.png"> Figure 5: Proposed construction type |
 | <img width="1604" src="Figures/histogram_plansets_categorical.png"> Figure 6: Plansets | <img width="1604" src="Figures/histogram_street_name.png"> Figure 7: Street names | <img width="1604" src="Figures/histogram_supervisor_district.png"> Figure 8: Supervisor distrcit |
@@ -42,6 +44,7 @@ Permit type is a categorical feature and is encoded as a one-hot vector. The con
 
 Running a linear regression in which we predict the number of days for a permit to move from being in the filed stage to the issued stage, using only the permit type as a feature, we obtain the predictions seen in Figure 17. The mean square error (MSE) here is 5742. Adding the number of plan sets as a feature improves the prediction, as is seen in Figure 18. The MSE in this case is 5627. Finally, adding the following features: proposed construction type, zipcode, supervisor district, existing construction type, and neighborhood improves the prediction as seen in Figure 18. The MSE in this case is 5595.
 
+| | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="1604" src="Figures/prediction_days_to_issue_regression_permit_type.png">  Figure 17: Model 1 | <img width="1604" src="Figures/prediction_days_to_issue_regression_permit_type_plansets.png"> Figure 18: Model 2 | <img width="1604" src="Figures/prediction_days_to_issue_regression_permit_type_plansets_proposed_construction_type_zipcode_supervisor_district_existing_construction_type_neighborhood.png"> Figure 18: Model 3 |
 
