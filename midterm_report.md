@@ -26,21 +26,11 @@ As is evident in the histograms below, many of the categorical and boolean featu
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-| <img width="1604" src="Figures/histogram_permit_type.png"> Figure 3: Permit types 
-| <img width="1604" src="Figures/histogram_existing_construction_type.png"> Figure 4: Existing construction type 
-| <img width="1604" src="Figures/histogram_proposed_construction_type.png"> Figure 5: Proposed construction type |
-| <img width="1604" src="Figures/histogram_plansets_categorical.png"> Figure 6: Plansets 
-| <img width="1604" src="Figures/histogram_street_name.png"> Figure 7: Street names 
-| <img width="1604" src="Figures/histogram_supervisor_district.png"> Figure 8: Supervisor distrcit |
-| <img width="1604" src="Figures/histogram_zipcode.png"> Figure 9: Zipcodes 
-| <img width="1604" src="Figures/histogram_neighborhood.png"> Figure 10: Neighborhoods 
-| <img width="1604" src="Figures/histogram_latitude.png"> Figure 11: Latitude |
-| <img width="1604" src="Figures/histogram_longitude.png"> Figure 11: Longitude 
-| <img width="1604" src="Figures/histogram_log_base_10_estimated_cost.png"> Figure 12: Log base 10 estimated cost 
-| <img width="1604" src="Figures/histogram_num_existing_stories.png"> Figure 13: Number of existing stories |
-| <img width="1604" src="Figures/histogram_num_existing_stories_le_10.png"> Figure 14: Number of existing stories <= 10 
-| <img width="1604" src="Figures/histogram_num_proposed_stories.png"> Figure 14: Number of proposed stories 
-| <img width="1604" src="Figures/histogram_num_proposed_stories_le_10.png"> Figure 16: Number of proposed stories <= 10 |
+| <img width="1604" src="Figures/histogram_permit_type.png"> Figure 3: Permit types | <img width="1604" src="Figures/histogram_existing_construction_type.png"> Figure 4: Existing construction type | <img width="1604" src="Figures/histogram_proposed_construction_type.png"> Figure 5: Proposed construction type |
+| <img width="1604" src="Figures/histogram_plansets_categorical.png"> Figure 6: Plansets | <img width="1604" src="Figures/histogram_street_name.png"> Figure 7: Street names | <img width="1604" src="Figures/histogram_supervisor_district.png"> Figure 8: Supervisor distrcit |
+| <img width="1604" src="Figures/histogram_zipcode.png"> Figure 9: Zipcodes | <img width="1604" src="Figures/histogram_neighborhood.png"> Figure 10: Neighborhoods | <img width="1604" src="Figures/histogram_latitude.png"> Figure 11: Latitude |
+| <img width="1604" src="Figures/histogram_longitude.png"> Figure 11: Longitude | <img width="1604" src="Figures/histogram_log_base_10_estimated_cost.png"> Figure 12: Log base 10 estimated cost | <img width="1604" src="Figures/histogram_num_existing_stories.png"> Figure 13: Number of existing stories |
+| <img width="1604" src="Figures/histogram_num_existing_stories_le_10.png"> Figure 14: Number of existing stories <= 10 | <img width="1604" src="Figures/histogram_num_proposed_stories.png"> Figure 14: Number of proposed stories | <img width="1604" src="Figures/histogram_num_proposed_stories_le_10.png"> Figure 16: Number of proposed stories <= 10 |
 
 As is evident from Figure 5, most values (90694) of proposed construction type are 5 and in addition 34604 values are NA, which are not shown; however, there are three location features with predefined regions that have variation in the number of permits. In Figure 10 the Financial District/South Beach has a plurality of 17468, with Mission relatively close at 11691; 8826 of the entries in Mission are also in the top zipcode, 94110. Lincoln Park has the fewest entries, with 39. There are also 1367 NA values for neighborhood: every value that has NA for supervisor district also has NA for neighborhood. In Figure 12 it is shown that there is a large range for estimated cost, with the minimum value being $1 and the maximum value being $537,958,646, and 13623 less than $10 and 2134 values over $1 million. We use a log scale to display this more compactly. 
 
