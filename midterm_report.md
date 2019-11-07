@@ -12,17 +12,13 @@ For this project data for building permit applications in New York City and San 
 
 There are two physical limitations to the dataset that could lead to overfitting. The first is that we can only see the issue time for permits that have been issued. This suggests that a regression model alone would be predicting permit issue times for a meaningful portion of future permits that won’t actually be issued, while only being trained on issued-permit data. To prevent this, we’ll build two models that occur in sequence. The first classifies whether or not a permit will be issued by training on both issued and unissued permit data. The second predicts the number of days for a permit to be issued by training on permits that we know were eventually issued. So for a new permit, first classify whether or not it will be issued. If so, predict the number of days that will take. The second limitation is that we can't see long issue times for recently filed permits like we can for old permits. For example, today, we can't possibly see the permit issue time for one filed in 2018 that takes 2 years or more to be issued. So including the date as a feature would cause overfitting. We'd be underpredicting future permits simply because we can't possibly see long issue times for recently filed permits in this dataset. This is avoided by excluding date as a feature. Figure 1 below demonstrates these issues in the data.
 
-![](Figures/scatter_days_to_issue_date_filed.png)
-
-Figure 1: Permit issue times that we can see are limited by the last day this dataset was updated, and the limit decreases as permits are filed more recently. This phenomenon explains the clear, downsloping limiting line in the plot. 
+| | |
+:-------------------------:|:-------------------------:
+|<img width="1604" src="Figures/scatter_days_to_issue_date_filed.png">  Figure 1: Days to issue vs. date filed |  <img width="1604" src="Figures/histogram_permit_status.png"> Figure 2: Permit status |
 
 One simple way to remedy underfitting for the regression model is to shift any negative predictions to 0, since we know days to issue is at least 0. We’ll test the effectiveness of the classification model by misclassification rate. We’ll test the effectiveness of the regression model by root MSE, as days is an interpretable error unit. 
 
 Looking at the distribution of permit statuses in the SF dataset in Figure 2, we see that the majority are either "completed", "issued", or "filed"; however, there are a total of 14 categories represented. Given that we are interested in predicting how long it will take a building permit to move from "filed" to "issued" or "completed", it is encouraging that there are many entries to work with.
-
-![](Figures/histogram_permit_status.png)
-
-Figure 2: Distribution of permit statuses shows clear majority classes.
 
 When we look at the columns of "Filed date", "Issued date, and "Completed date" we see that 100% of all permits have been filed, 92.5% have been issued, and 48.9% have been completed. It is encouraging that all listed permit records have an issued date and the high proportion of permits which have been issued provides ample training data.
 
