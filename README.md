@@ -16,6 +16,10 @@ Identifying zones and neighborhoods that are more likely to have building permit
 
 # Datasets
 
+https://data.sfgov.org/Economy-and-Community/Registered-Business-Locations-San-Francisco/g8m3-pdis
+
+https://data.sfgov.org/Health-and-Social-Services/Restaurant-Scores-LIVES-Standard/pyih-qa8i
+
 https://data.cityofnewyork.us/Housing-Development/DOB-Permit-Issuance/ipu4-2q9a
 
 https://data.cityofnewyork.us/Housing-Development/Housing-New-York-Units-by-Building/hg8x-zxpr
