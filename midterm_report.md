@@ -14,7 +14,7 @@ There are two physical limitations to the dataset that could lead to overfitting
 
 | | |
 |:-------------------------:|:-------------------------:|
-|  <img width="1604" src="Figures/histogram_permit_status.png"> Figure 1: Permit status | <img width="1604" src="Figures/scatter_days_to_issue_date_filed.png">  Figure 2: Days to issue vs. date filed |
+|  <img width="1604" src="figures/histogram_permit_status.png"> Figure 1: Permit status | <img width="1604" src="figures/scatter_days_to_issue_date_filed.png">  Figure 2: Days to issue vs. date filed |
 
 One simple way to remedy underfitting for the regression model is to shift any negative predictions to 0, since we know days to issue is at least 0. We’ll test the effectiveness of the classification model by misclassification rate. We’ll test the effectiveness of the regression model by root MSE, as days is an interpretable error unit. 
 
@@ -26,7 +26,7 @@ As is evident in the histograms below, many of the categorical and boolean featu
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-| <img width="1604" src="Figures/histogram_permit_type.png"> Figure 3: Permit types | <img width="1604" src="Figures/histogram_zipcode.png"> Figure 4: Zipcodes | <img width="1604" src="Figures/histogram_log_base_10_estimated_cost.png"> Figure 5: Log base 10 estimated cost |
+| <img width="1604" src="figures/histogram_permit_type.png"> Figure 3: Permit types | <img width="1604" src="figures/histogram_zipcode.png"> Figure 4: Zipcodes | <img width="1604" src="figures/histogram_log_base_10_estimated_cost.png"> Figure 5: Log base 10 estimated cost |
 
 However, there are three location features with predefined regions that have variation in the number of permits. For example, in Figure 4, Zipcode 94110 has a clear plurality, with 14228 permits; it also has a large overlap with the Mission neighborhood, which has the second-highest number of permits among neighborhoods. Zipcode 94129 has the least number of permits, 20. There are also 1360 NA values for zipcode. In Figure 5 it is shown that there is a large range for estimated cost, with the minimum value being $1 and the maximum value being $537,958,646, and 13623 less than $10 and 2134 values over $1 million. We use a log scale to display this more compactly. 
 
@@ -42,7 +42,7 @@ Running a linear regression in which we predict the number of days for a permit 
 
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="1604" src="Figures/prediction_days_to_issue_regression_permit_type.png">  Figure 6: Model 1 | <img width="1604" src="Figures/prediction_days_to_issue_regression_permit_type_plansets.png"> Figure 7: Model 2 | <img width="1604" src="Figures/prediction_days_to_issue_regression_permit_type_plansets_proposed_construction_type_zipcode_supervisor_district_existing_construction_type_neighborhood.png"> Figure 8: Model 3 |
+|<img width="1604" src="figures/prediction_days_to_issue_regression_permit_type.png">  Figure 6: Model 1 | <img width="1604" src="figures/prediction_days_to_issue_regression_permit_type_plansets.png"> Figure 7: Model 2 | <img width="1604" src="figures/prediction_days_to_issue_regression_permit_type_plansets_proposed_construction_type_zipcode_supervisor_district_existing_construction_type_neighborhood.png"> Figure 8: Model 3 |
 
 ### Future direction
 
