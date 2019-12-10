@@ -28,7 +28,6 @@ zips_sf <- zctas(cb = T, starts_with = c("94"), class = "sf") %>%
 head(zips_sf)
 ```
 ```{r}
-register_google(key = 'AIzaSyDZpJXjmmjN23LleD3QYSnkiuDtvluYKcs')
 basemap <- get_map(location = c(lon = -122.3999, lat = 37.7846), zoom = 9)
 
 ggmap(basemap) +
@@ -37,7 +36,6 @@ ggmap(basemap) +
   theme(legend.position = "none")
 ```
 ```{r}
-register_google(key = 'AIzaSyDZpJXjmmjN23LleD3QYSnkiuDtvluYKcs')
 basemap <- get_map(location = c(lon = -122.3999, lat = 37.7846), zoom = 12)
 
 zips = zipcode[zipcode$zip %in% building_data$Zipcode, ]
