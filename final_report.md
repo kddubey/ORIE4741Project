@@ -46,6 +46,5 @@ Running a linear regression in which we predict the number of days for a permit 
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="1604" src="Figures/prediction_days_to_issue_regression_permit_type.png">  Figure 6: Model 1 | <img width="1604" src="Figures/prediction_days_to_issue_regression_permit_type_plansets.png"> Figure 7: Model 2 | <img width="1604" src="Figures/prediction_days_to_issue_regression_permit_type_plansets_proposed_construction_type_zipcode_supervisor_district_existing_construction_type_neighborhood.png"> Figure 8: Model 3 |
 
-### Future direction
+### Location Information
 
-The most important task ahead is to incorporate information outside this dataset, such as crime rates and transportation access in different areas, and quantify correlations between these features and city development. We hypothesize that including these features in our models will increase accuracy. We’ll also use nonlinear models and polynomial expansions for the regression model, as linear models appeared to underfit.

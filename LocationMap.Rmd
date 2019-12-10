@@ -1,0 +1,56 @@
+---
+title: "Untitled"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+building_data = read.csv('data/data_train.csv', header = TRUE)
+zipcode_data = read.csv('building-permit-applications-data/zipcode_data_all.csv', header = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(tigris)
+library(ggmap)
+library(zipcode)
+data(zipcode)
+
+# SF zipcodes start with 94XXX
+zips_sf <- zctas(cb = T, starts_with = c("94"), class = "sf") %>%
+  select(zip = ZCTA5CE10, geometry)
+
+head(zips_sf)
+```
+```{r}
+register_google(key = 'AIzaSyDZpJXjmmjN23LleD3QYSnkiuDtvluYKcs')
+basemap <- get_map(location = c(lon = -122.3999, lat = 37.7846), zoom = 9)
+
+ggmap(basemap) +
+  geom_sf(aes(fill = zip), data = zips_sf, inherit.aes = F, size = 0, alpha = 0.6) +
+  coord_sf(ndiscr = F) +
+  theme(legend.position = "none")
+```
+```{r}
+register_google(key = 'AIzaSyDZpJXjmmjN23LleD3QYSnkiuDtvluYKcs')
+basemap <- get_map(location = c(lon = -122.3999, lat = 37.7846), zoom = 12)
+
+zips = zipcode[zipcode$zip %in% building_data$Zipcode, ]
+zips$Zipcode = zips$zip
+
+total <- merge(zips, zipcode_data, by="Zipcode")
+
+fin_heatmap <- ggmap(basemap, extent = "device") + stat_summary_2d(data = total, aes(x = longitude, y = latitude, z = Business.total), fun = mean, alpha = 0.6, bins = 30) + scale_fill_gradient(name = "Businesses", low = "green", high = "red")
+fin_heatmap
+
+fin_heatmap <- ggmap(basemap, extent = "device") + stat_summary_2d(data = total, aes(x = longitude, y = latitude, z = Restaurant.total), fun = mean, alpha = 0.6, bins = 30) + scale_fill_gradient(name = "Restaurants", low = "green", high = "red")
+fin_heatmap
+
+fin_heatmap <- ggmap(basemap, extent = "device") + stat_summary_2d(data = total, aes(x = longitude, y = latitude, z = Fire.total), fun = mean, alpha = 0.6, bins = 30) + scale_fill_gradient(name = "Fires", low = "green", high = "red")
+fin_heatmap
+```
