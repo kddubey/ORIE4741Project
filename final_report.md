@@ -80,8 +80,7 @@ Now that unissued and same-day permits are handled, we can more safely train on 
 
 | | |
 |:-------------------------:|:-------------------------:|
-|  <img width="1604" src="Figures/histogram_days_issue_non_same_day.png"> | Figure 6: Days-to-issue is still overdispersed. 
-Linear regression models trained on the whole dataset (including same-day permits) were severely underfitting. They usually reported a training RMSE of 75 days, even with a polynomial basis expansion. These initial models motivated the use of more complex, truly non-linear ones. |
+|  <img width="1604" src="Figures/histogram_days_issue_non_same_day.png"> | Figure 6: Days-to-issue is still overdispersed. Linear regression models trained on the whole dataset (including same-day permits) were severely underfitting. They usually reported a training RMSE of 75 days, even with a polynomial basis expansion. These initial models motivated the use of more complex, truly non-linear ones. |
 
 The Random Forest was fit using the same features as the SVM in model (2). The choice to include these features was partially motivated by scatter-plots during EDA, but more so by numerous trials on training data where we fitted SVMs and Random Forests using other feature combinations. We computed errors of a few other feature combinations on the test set, but its substantial size allows us to still accurately report out-of-sample error by the Hoeffding bound. Interestingly, estimated cost and one-hot encoded zip codes did not yield any accuracy improvements for models (2) and (3). 
 Mean absolute error (MAE) is a better metric than mean squared error (MSE) due to the high variance of days-to-issue. Model (3) ultimately had an RMSE of 107.8 days and a MAE of 47.5 days on the non-same-day dataset. On a more representative test set—one that includes same-day permits that were misclassified by model 2—the MAE is 51.5 days. 
