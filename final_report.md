@@ -131,9 +131,9 @@ Therefore, I would trust model (5) on a short-term time period, and use it to ma
 
 ### Model Trustworthiness
 
-| |
-|:-------------------------:|
-|<img width="1604" src="Figures/heatmap_correlation_matrix.png">  Figure 9: Location Features |
+| | |
+|:-------------------------:|:-------------------------:|
+|<img width="1604" src="Figures/heatmap_correlation_matrix.png"> | Figure 9: Location Features. Of concern is the high negative correlation between restaurant inspection score and number of building permit applications |
 
 It is important to consider whether the models explored in this study would present opposition to quality and fairness among the residents of San Francisco; if our models exacerbate inequality or create discriminatory cycles among residents, then we have created a weapon of math destruction. Many of the models we explored classify San Francisco into distinct geographic regions, such as into distinct neighborhoods and postal zip codes. We also explored parameters that are specific to geographic zones, such as the number of businesses, the number of restaurants, and the number of fire incidents reported. These kinds of features are likely correlated with both racial and income classifications given historical clustering of communities and persistent income discrimination against minority groups. In our models geographic zones and location based features provided an increase in prediction accuracy when predicting the number of days required for a permit to be issued. Furthermore, the location features were highly correlated to the number of building permit applications in a given zip code.
 
